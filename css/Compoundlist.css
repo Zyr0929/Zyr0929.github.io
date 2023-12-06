@@ -1,0 +1,48 @@
+body {
+    background-color: black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh; /* Make sure the body takes up the full height of the viewport */
+      margin: 60px;
+      background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1462889/pat-back.svg");
+  background-position: center;
+  background-repeat: repeat;
+  background-size: 10%;
+}
+
+.element-box {
+  border: 2px solid #fff;
+  padding: 10px;
+  margin-right: 20px;
+  width: 200px;
+  text-align: center;
+  display: inline-block;
+  transition: border-color 0.5s ease;
+  cursor: pointer;
+  margin: 10px; /* Add margin to create space between boxes */
+  border-radius: 25px;
+}
+
+.element-box:hover {
+  border-color: #702963; /* Change color on hover to create a glowing effect */
+}
+
+#searchInput {
+  margin: 10px;
+}
+.element-box.bumped {
+  transform: translateY(-10px);
+  background-color: #702963; /* Change the color as needed */
+  transition: transform 0.3s ease, background-color 0.3s ease; /* Add a transition for a smooth effect */
+}
+
+    .element-description {
+      display: none;
+      text-align: left;
+    }
+
+    .element-box.bumped .element-description {
+      display: block;
+    }
