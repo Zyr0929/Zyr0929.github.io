@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+  </head>
+  <body>
+    <a-scene
+      embedded
+      arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: true;"
+    >
+      <!-- Add your marker for 'W' (water) -->
+      <a-nft
+        type="nft"
+        url="path/to/your-marker-w.nft"  <!-- Replace with the path to your W marker -->
+      >
+        <!-- Add a 3D model for water (rust) -->
+        <a-entity
+          gltf-model="url(path/to/3d-model-rust.glb)"  <!-- Replace with the path to your rust 3D model -->
+          scale="0.1 0.1 0.1"
+        ></a-entity>
+      </a-nft>
+
+      <!-- Add your marker for 'S' (steel) -->
+      <a-nft
+        type="nft"
+        url="path/to/your-marker-s.nft"  <!-- Replace with the path to your S marker -->
+      >
+        <!-- Add a 3D model for steel -->
+        <a-entity
+          gltf-model="url(path/to/3d-model-steel.glb)"  <!-- Replace with the path to your steel 3D model -->
+          scale="0.1 0.1 0.1"
+        ></a-entity>
+      </a-nft>
+    </a-scene>
+  </body>
+</html>
