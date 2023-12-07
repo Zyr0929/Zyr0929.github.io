@@ -9,6 +9,7 @@ let restart = document.getElementById("restart");
 let userScore = document.getElementById("user-score");
 let startScreen = document.querySelector(".start-screen");
 let startButton = document.getElementById("start-button");
+let difficultyPicker = document.getElementById("difficulty-picker");
 let questionCount;
 let scoreCount = 0;
 let count = 11;
@@ -61,8 +62,7 @@ restart.addEventListener("click", () => {
     scoreContainer.classList.add("hide");
 });
 
-// Next Button
-nextBtn.addEventListener("click", () => {
+ nextBtn.addEventListener("click", () => {
     questionCount += 1;
     if (questionCount == difficulties[difficultySelector.value].length) {
         displayContainer.classList.add("hide");
@@ -79,17 +79,25 @@ nextBtn.addEventListener("click", () => {
     }
 });
 
+
+// Timer
 // Timer
 const timerDisplay = () => {
+    count = 15; // Reset the count to 11 before starting the timer
+    timeLeft.innerHTML = `${count}s`;
+
+    clearInterval(countdown); // Clear any existing interval
+
     countdown = setInterval(() => {
         count--;
         timeLeft.innerHTML = `${count}s`;
-        if (count == 0) {
+        if (count <= 0) {
             clearInterval(countdown);
-            nextBtn.click(); // Simulate click on next button when time is up
+            setTimeout(() => nextBtn.click(), 1000); // Simulate click on the next button after a brief delay
         }
-    }, 1000);
+    }, 1000); // Set the interval duration to 1000ms (1 second)
 };
+
 
 // Display quiz
 const quizDisplay = (questionCount) => {
@@ -174,4 +182,47 @@ startButton.addEventListener("click", () => {
 window.onload = () => {
     startScreen.classList.remove("hide");
     displayContainer.classList.add("hide");
+};
+// Difficulty Picker
+const showDifficultyPicker = () => {
+    startScreen.classList.add("hide");
+    difficultyPicker.classList.remove("hide");
+};
+
+// Start Button Click
+startButton.addEventListener("click", () => {
+    showDifficultyPicker();
+});
+
+// Additional script to hide timer when difficulty is not selected
+const hideTimer = () => {
+    document.querySelector(".timer-div").classList.add("hide");
+};
+
+const showTimer = () => {
+    document.querySelector(".timer-div").style.display = "flex"; // Show the timer
+};
+// Difficulty Selection
+const selectDifficulty = () => {
+    difficultyPicker.classList.add("hide");
+    displayContainer.classList.remove("hide");
+    document.getElementById("container").classList.remove("hide"); // Show the quiz container
+    document.getElementById("next-button").classList.remove("hide"); // Show the Next button
+    hideTimer(); // Hide the timer when difficulty is selected
+    initial();
+    showTimer(); // Show the timer when difficulty is selected
+    timerDisplay(); // Start the timer when difficulty is selected
+};
+
+// Difficulty Selector Click
+document.getElementById("select-difficulty-button").addEventListener("click", () => {
+    selectDifficulty();
+});
+
+// Window onload
+window.onload = () => {
+    startScreen.classList.remove("hide");
+    difficultyPicker.classList.add("hide");
+    displayContainer.classList.add("hide");
+    hideTimer(); // Hide the timer initially
 };
