@@ -123,3 +123,10 @@ right: 10px;
 opacity: 1;
 transition: top 300ms ease-out 1100ms, right 300ms ease-out 1100ms, opacity 300ms ease 1100ms;
 }
+.fa-home {
+  color: white;
+  cursor: pointer;
+}
+.fa-home:hover{
+  color: gray;
+}

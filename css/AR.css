@@ -306,7 +306,7 @@ h1 {
 }
 #tube {
 	opacity: 1;
-	animation: flickerI 2s linear  reverse infinite;
+	animation: OnOff 2s linear  reverse infinite;
 }
 #tube::after {
 	content: '';
@@ -315,12 +315,12 @@ h1 {
 	-moz-box-shadow: -65px 0px 70px 8px rgba(255,255,255,1);
 	box-shadow: -65px 0px 70px 8px rgba(255,255,255,1);
 }
-#L, #G {
-	animation: flickerLG 2s linear reverse infinite;
+#Blink1 {
+	animation: React 2s linear reverse infinite;
 	position: relative;
 }
-#L::after, 
-#L::before  {
+#Blink1::after, 
+#Blink1::before  {
 	content:' ';
 	width: 100px;
 	height: 100px;
@@ -332,7 +332,7 @@ h1 {
 	opacity: 0.05;
 	filter: blur(10px);
 }
-#L::after {
+#Blink1::after {
 	width: 200px;
 	height: 200px;
 	top: -150%;
@@ -342,7 +342,7 @@ h1 {
 }
 
 
-@keyframes flickerI {
+@keyframes OnOff {
 	0% {
 		opacity: 0.4;
 	}
@@ -387,7 +387,7 @@ h1 {
 	}
 }
 
-@keyframes flickerLG {
+@keyframes React {
 	0% {
 		opacity: 0.19;
 	}

@@ -74,6 +74,7 @@ button {
     align-items: center;
     justify-content: space-between;
     padding: 0.7em 1.8em;
+    display: none; /* Hide initially */
 }
 
 .difficulty-selector {
@@ -143,4 +144,11 @@ button {
 #user-score {
     font-size: 1.5em;
     color: #ffffff;
+}
+#difficulty-picker {
+    text-align: center;
+    margin-top: 2em;
+}
+#difficulty {
+    margin-top: 2em;
 }
